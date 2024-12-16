@@ -25,7 +25,7 @@ st.markdown('<p class="big-font">Welcome to Brainmap, a platform for tumor detec
 '''
 
 # URL of the API
-url = 'http://127.0.0.1:8000/predict'  # Update this to the correct URL of your FastAPI server
+url = 'https://brainmap-390823521738.us-central1.run.app/predict'  # Update this to the correct URL of your FastAPI server
 
 
 # Placeholder for the image
