@@ -1,6 +1,8 @@
-from datetime import time
 import streamlit as st
 import requests
+import time
+from PIL import Image
+import numpy as np
 
 
 st.markdown('''
@@ -44,7 +46,7 @@ if uploaded_file is not None:
         # Proceed with the image processing and prediction
         img = uploaded_file.getvalue()
         files = {"file": ("image.jpeg", img, "image/jpeg")}
-        response = requests.post(url, files=files, timeout=10)
+        response = requests.post(url, files=files)
         if response.status_code == 200:
             result = response.json()
             if "Prediction" in result and 'Probability' in result:
@@ -52,7 +54,7 @@ if uploaded_file is not None:
                 probability = result["Probability"]
                 if prediction is not None:
                     if prediction == 'notumor':
-                        st.markdown("<h2 style='color:green;'>No tumor detected</h2>", unsafe_allow_html=True)
+                        st.markdown(f"<h2 style='color:green;'>No tumor detected</h2>", unsafe_allow_html=True)
                     else:
                         st.markdown(f"<h2 style='color:red;'>Tumor detected: {prediction}</h2>", unsafe_allow_html=True)
                     st.markdown(f"<h3 style='color:black;'>Probability: {probability * 100:.2f}%</h3>", unsafe_allow_html=True)
