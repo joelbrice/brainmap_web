@@ -73,7 +73,7 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #4CAF50; /* Green button color */
                 color: white;
-                width: 100px;
+                width: 150px;
                 border-radius: 20px;
                 border-color: transparent;
             }
@@ -123,7 +123,7 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #FF9800; /* Orange button color */
                 color: white;
-                width: 100px;
+                width: 150px;
                 border-radius: 20px;
                 border-color: transparent;
             }
