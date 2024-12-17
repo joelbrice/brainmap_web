@@ -63,10 +63,11 @@ url = 'https://brainmapv1-390823521738.europe-west3.run.app/predict'  # Update t
 # Placeholder for the image
 image_placeholder = st.empty()
 
-SHOW_THANK_YOU = " "
+SHOW_THANK_YOU = False
 
 # Upload_file:
 uploaded_file = st.file_uploader("Choose an MRI image...", type=["tif", "tiff", "png", "jpg", "jpeg"])
+
 if uploaded_file is not None:
     st.image(uploaded_file, width=300, caption="Uploaded image")
     if st.button('Get Prediction and the Probability of having a tumor'):
