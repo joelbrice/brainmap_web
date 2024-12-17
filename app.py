@@ -168,9 +168,8 @@ st.sidebar.header(":brain: BrainMap Navigation")
 st.sidebar.write(":bust_in_silhouette: **About Us**")
 st.sidebar.write(":mag: **Upload MRI Image**")
 st.sidebar.write(":bar_chart: **Results**")
-st.sidebar.write(":page_facing_up: **Documentation**")
 st.sidebar.markdown("---")
-st.sidebar.write("Visit our [documentation](https://brainmap.github.io).")
+st.sidebar.write(":page_facing_up: Visit our [documentation](https://joelbrice.github.io/brainmap.github.io/).")
 
 st.sidebar.title("Settings")
 # Add a sidebar theme selector
