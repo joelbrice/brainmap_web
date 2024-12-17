@@ -73,7 +73,7 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #4CAF50; /* Green button color */
                 color: white;
-                border-radius: 5px;
+                border-radius: 10px;
                 border-color: transprent;
             }
             .stButton>button:hover {
@@ -123,7 +123,7 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #FF9800; /* Orange button color */
                 color: white;
-                border-radius: 5px;
+                border-radius: 10px;
             }
             .stButton>button:hover {
                 background-color: #FB8C00; /* Darker orange on hover */
