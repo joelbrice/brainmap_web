@@ -56,9 +56,6 @@ def load_custom_css(theme="light"):
             .sidebar .sidebar-header {
                 background-color: #F8F9FA; /* light background for sidebar header */
             }
-            .css-1v3fvcr {
-                background-color: #F8F9FA !important; /* background color fix for Streamlit widgets */
-            }
             .custom-title {
                 font-size: 50px;
                 font-weight: bold;
@@ -81,7 +78,8 @@ def load_custom_css(theme="light"):
             }
             .stButton>button:hover {
                 background-color: #45A049; /* Darker green on hover */
-                border: none;
+                border-radius: none;
+                border-color: transprent;
             }
         </style>
         """
