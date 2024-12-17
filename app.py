@@ -77,9 +77,11 @@ def load_custom_css(theme="light"):
                 background-color: #4CAF50; /* Green button color */
                 color: white;
                 border-radius: 5px;
+                border-color: transprent;
             }
             .stButton>button:hover {
                 background-color: #45A049; /* Darker green on hover */
+                border: none;
             }
         </style>
         """
