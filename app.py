@@ -73,6 +73,7 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #4CAF50; /* Green button color */
                 color: white;
+                width: 100px;
                 border-radius: 20px;
                 border-color: transparent;
             }
@@ -122,13 +123,14 @@ def load_custom_css(theme="light"):
             .stButton>button {
                 background-color: #FF9800; /* Orange button color */
                 color: white;
+                width: 100px;
                 border-radius: 20px;
-                border-color: none;
+                border-color: transparent;
             }
             .stButton>button:hover {
                 background-color: #FB8C00; /* Darker orange on hover */
                 border-radius: 20px;
-                border-color: none;
+                border-color: transparent;
             }
         </style>
         """
