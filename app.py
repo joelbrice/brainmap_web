@@ -194,7 +194,7 @@ uploaded_file = st.file_uploader("Choose an MRI image...", type=["tif", "tiff", 
 
 if uploaded_file is not None:
     st.image(uploaded_file, width=300, caption="Uploaded image")
-    if st.button('Get Prediction and the Probability of having a tumor'):
+    if st.button('Predict'):
         # Loading bar starts here
         with st.spinner('Processing the image...'):
             my_bar = st.progress(0)
