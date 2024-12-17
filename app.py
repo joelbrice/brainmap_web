@@ -3,9 +3,14 @@ import requests
 import time
 from PIL import Image
 import numpy as np
+
+
+
+
+
 # Page configuration MUST BE FIRST
 st.set_page_config(
-    page_title="BrainMap Web",
+    page_title="Brainmap",
     page_icon=":brain:",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -32,32 +37,130 @@ st.markdown('''
 }
 </style>
 ''', unsafe_allow_html=True)
-# st.markdown('''
-# <style>
-# .big-font {
-#     font-size:20px !important;
-# }
-# </style>
-# ''', unsafe_allow_html=True)
+
+# Function to load custom CSS for theme switching
+# Function to load custom CSS for theme switching
+def load_custom_css(theme="light"):
+    if theme == "light":
+        css = """
+        <style>
+            /* Light Theme Styles */
+            body {
+                background-color: #F8F9FA; /* light background */
+                color: #000; /* dark text color */
+            }
+            .sidebar .sidebar-content {
+                background-color: #FFFFFF; /* white background for sidebar */
+                color: #000; /* dark text in sidebar */
+            }
+            .sidebar .sidebar-header {
+                background-color: #F8F9FA; /* light background for sidebar header */
+            }
+            .css-1v3fvcr {
+                background-color: #F8F9FA !important; /* background color fix for Streamlit widgets */
+            }
+            .custom-title {
+                font-size: 50px;
+                font-weight: bold;
+                color: #4CAF50; /* Green title */
+                text-align: center;
+            }
+            .custom-footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                color: gray;
+                font-size: 12px;
+            }
+            .stButton>button {
+                background-color: #4CAF50; /* Green button color */
+                color: white;
+                border-radius: 5px;
+            }
+            .stButton>button:hover {
+                background-color: #45A049; /* Darker green on hover */
+            }
+        </style>
+        """
+        st.markdown(css, unsafe_allow_html=True)
+
+    elif theme == "dark":
+        css = """
+        <style>
+            /* Dark Theme Styles */
+            body {
+                background-color: #2E2E2E; /* dark background */
+                color: #FFFFFF; /* white text color */
+            }
+            .stAppViewContainer{
+                background-color: #2E2E2E; /* dark background */
+                color: #FFFFFF !important; /* white text color */
+            }
+             .stSidebar  {
+                background-color: #1E1E1E; /* dark background for sidebar */
+                color: #FFFFFF; /* white text in sidebar */
+            }
+
+            .stRadio {
+                background-color: #1E1E1E !important;
+                color: #FFFFFF !important;
+            }
+            .custom-title {
+                font-size: 50px;
+                font-weight: bold;
+                color: #FF9800; /* Orange title for dark theme */
+                text-align: center;
+            }
+            .custom-footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                color: gray;
+                font-size: 12px;
+            }
+            .stButton>button {
+                background-color: #FF9800; /* Orange button color */
+                color: white;
+                border-radius: 5px;
+            }
+            .stButton>button:hover {
+                background-color: #FB8C00; /* Darker orange on hover */
+            }
+        </style>
+        """
+        # Inject the custom CSS styles into the app
+        st.markdown(css, unsafe_allow_html=True)
+
 '''
 # Brainmap, a tumor detection and classification platform!
 '''
-st.markdown('<p class="big-font">Welcome to Brainmap! A platform for tumor detection. Upload an MRI image and get a prediction on whether it indicates the presence of tumor or not.</p>', unsafe_allow_html=True)
-# Load and display the logo
+
 logo = Image.open("static/images/brainmap_logo.png")
-# Main header
-st.image(logo, width=200)
-st.markdown('<div class="custom-title">BrainMap MRI Analysis</div>', unsafe_allow_html=True)
-st.write("Welcome to BrainMap! Upload an MRI image and get a prediction on whether it indicates the presence of a tumor or not.")
+
+st.write("Upload an MRI image and get a prediction on whether it indicates the presence of a tumor or not.")
 # Sidebar for settings and branding
 st.sidebar.image(logo, width=150)
+st.sidebar.header(":brain: BrainMap Navigation")
+st.sidebar.write(":bust_in_silhouette: **About Us**")
+st.sidebar.write(":mag: **Upload MRI Image**")
+st.sidebar.write(":bar_chart: **Results**")
+st.sidebar.write(":page_facing_up: **Documentation**")
+st.sidebar.markdown("---")
+st.sidebar.write("Visit our [documentation](https://brainmap.github.io).")
+
 st.sidebar.title("Settings")
-theme = st.sidebar.radio("Choose a Theme:", ["Light", "Dark", "Custom"])
-st.sidebar.write("Visit our [documentation](https://brainmap-docs.com).")
+# Add a sidebar theme selector
+theme = st.sidebar.radio("Choose a Theme:", ["Light", "Dark"])
+# Apply the selected theme's CSS
+load_custom_css(theme.lower())
+
 
 '''
 ## Upload MRI Image
 '''
+
 # URL of the API
 url = 'https://brainmapv1-390823521738.europe-west3.run.app/predict'  # Update this to the correct URL of your FastAPI server
 # Placeholder for the image
@@ -103,35 +206,4 @@ if uploaded_file is not None:
 # Conditional "Thank you" message
 if SHOW_THANK_YOU:
     st.markdown('<p class="big-font">Thank you for using BrainMap!</p>', unsafe_allow_html=True)
-
-def load_custom_css():
-    css = """
-        <style>
-        /* Add a background color */
-        body {
-            background-color: #F5F7FA;
-        }
-        /* Style the header text */
-        .main-title {
-            font-size: 50px;
-            font-weight: bold;
-            color: #4CAF50; /* Green */
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        /* Footer style */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            color: gray;
-            font-size: 12px;
-        }
-        </style>
-    """
-    st.markdown(css, unsafe_allow_html=True)
-# Apply the custom CSS
-load_custom_css()
-# Footer
-st.markdown('<div class="custom-footer">© 2024 BrainMap Inc. All rights reserved.</div>', unsafe_allow_html=True)
+# Function to load custom CSS
