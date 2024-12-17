@@ -133,13 +133,35 @@ def load_custom_css(theme="light"):
         # Inject the custom CSS styles into the app
         st.markdown(css, unsafe_allow_html=True)
 
-'''
-# Brainmap, a tumor detection and classification platform!
-'''
 
+
+st.title("Advanced MRI Analysis for Tumor Detection")
 logo = Image.open("static/images/brainmap_logo.png")
 
-st.write("Upload an MRI image and get a prediction on whether it indicates the presence of a tumor or not.")
+# Provide a detailed description
+
+# Set the title of the application
+
+# Provide a detailed description with enhanced styling
+st.markdown("""
+### Welcome to **BrainMap**!
+
+**BrainMap** is a cutting-edge platform leveraging artificial intelligence to revolutionize brain tumor detection and classification. Our state-of-the-art deep learning algorithms analyze MRI scans with precision, providing rapid and accurate assessments to support medical professionals in their diagnostic process.
+
+#### How It Works:
+- **Upload an MRI Image**: Simply upload your MRI image using the interface.
+- **Get Instant Predictions**: Our advanced system will swiftly process the image and deliver a comprehensive analysis indicating the presence or absence of tumors.
+
+#### Why Choose BrainMap?
+- **Reliable**: Combining the power of machine learning with medical expertise.
+- **Efficient**: Non-invasive tool for early tumor detection.
+- **Improving Outcomes**: Potentially enhances patient outcomes through timely intervention.
+
+Thank you for choosing BrainMap as your trusted partner in medical imaging analysis!
+""")
+
+
+
 # Sidebar for settings and branding
 st.sidebar.image(logo, width=150)
 st.sidebar.header(":brain: BrainMap Navigation")
