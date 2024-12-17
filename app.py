@@ -129,6 +129,7 @@ def load_custom_css(theme="light"):
             }
             .stButton>button:hover {
                 background-color: #FB8C00; /* Darker orange on hover */
+                color: #ffeeff;
             }
         </style>
         """
