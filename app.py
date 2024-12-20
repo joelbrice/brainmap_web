@@ -33,7 +33,7 @@ st.markdown(
         color: #7F8C8D;
     }
     </style>
-    <h1 class="main-title"> Advanced MRI Analysis for Tumor Detections</h1>
+    <h1 class="main-title"> Advanced MRI Analysis for Tumor Detections and Classifications </h1>
     """,
     unsafe_allow_html=True
 )
